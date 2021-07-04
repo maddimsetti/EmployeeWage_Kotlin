@@ -12,16 +12,11 @@ fun main(args: Array<String>) {
     var empWorkingHours = 0
     val empCheck = Random.nextInt(3)   //Checking with random Number
 
-     empWorkingHours = if (empCheck == PARTTIME) {
-        println("Employee is Worked for Part Time")
-        4
-    } else (if(empCheck == FULLTIME) {
-        println("Employee is Worked for Full Time")
-        8
-    } else {
-        println("Employee is Absent")
-         0
-    }) as Int
+    empWorkingHours = when(empCheck) {
+        PARTTIME -> 4
+        FULLTIME -> 8
+        else -> 0
+    }
     var dailyEmployeeWage = WAGE_PER_HOUR * empWorkingHours
     println("Daily Employee Wage : $dailyEmployeeWage")
 }
