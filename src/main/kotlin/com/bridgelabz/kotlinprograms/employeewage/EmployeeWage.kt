@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
 
     //Initialize the Variable
     var empWorkingHours = 0
-    val empCheck = Random.nextInt(2)   //Checking with random Number
+    val empCheck = Random.nextInt(3)   //Checking with random Number
 
      empWorkingHours = if (empCheck == PARTTIME) {
         println("Employee is Worked for Part Time")
