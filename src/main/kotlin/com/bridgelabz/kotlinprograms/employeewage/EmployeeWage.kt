@@ -1,13 +1,23 @@
 package com.bridgelabz.kotlinprograms.employeewage
 
-import kotlin.math.abs
 import kotlin.random.Random
 
+const val ABSENT = 0
+const val WAGE_PER_HOUR = 20
 fun main(args: Array<String>) {
     println("Welcome To the Employee Wage Computation In Kotlin Language")
 
-    //UC 1: Checking Employee Presence
-    val absent = 0   //Initialize the Variable
+    //Initialize the Variable
+    var empWorkingHours = 0
     val empCheck = Random.nextInt(2)   //Checking with random Number
-    if (empCheck == absent) println("Employee is Absent") else println("Employee is Present")
+
+    empWorkingHours = if (empCheck == ABSENT) {
+        println("Employee is Absent")
+        0
+    } else {
+        println("Employee is Present")
+        8
+    }
+    var dailyEmployeeWage = WAGE_PER_HOUR * empWorkingHours
+    println("Daily Employee Wage : $dailyEmployeeWage")
 }
