@@ -2,30 +2,30 @@ package com.bridgelabz.kotlinprograms.employeewage
 
 import kotlin.random.Random
 
-const val PARTTIME: Int = 1
-const val FULLTIME: Int = 2
+const val PARTTIME = 1
+const val FULLTIME = 2
 const val WAGE_PER_HOUR = 20
 const val PART_TIME_HOURS = 4
 const val FULL_TIME_HOURS = 8
+const val NO_OF_WORKING_DAYS = 20
 
-//Initialize the Variable
-var empWorkingHours = 0
-val empCheck = Random.nextInt(3)   //Checking with random Number
-
-fun getWorkingHours(): Int {
-    empWorkingHours = when(empCheck) {
-        PARTTIME -> 4
-        FULLTIME -> 8
+fun getWorkingHours(empCheck: Int): Int {
+    return when (empCheck) {
+        PARTTIME -> return PART_TIME_HOURS
+        FULLTIME -> return FULL_TIME_HOURS
         else -> 0
     }
-    return  empWorkingHours
 }
 
 fun main(args: Array<String>) {
     println("Welcome To the Employee Wage Computation In Kotlin Language")
 
-    var empHours = getWorkingHours()
+    var totalEmpHours = 0
+    for(days in 1..NO_OF_WORKING_DAYS) { //Checking with random Number
+        val empCheck = Random.nextInt(3)
+        totalEmpHours += getWorkingHours(empCheck)
+    }
 
-    var employeeWage = empHours * WAGE_PER_HOUR
-    println("Hours: $empHours   Employee Wage: $employeeWage")
+    var employeeWage = totalEmpHours * WAGE_PER_HOUR
+    println("Hours: $totalEmpHours   Employee Wage: $employeeWage")
 }
